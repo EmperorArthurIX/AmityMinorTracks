@@ -4,21 +4,15 @@ from .models import MTSyllabus, MinorTrack
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
-# GLOBAL DATABASE FETCHED VARIABLES
-
-def config():
-    global MT_OBJECTS
-    global MT_READS
-    MT_OBJECTS = MinorTrack.objects.all()
-    MT_READS = [i.read_more for i in MT_OBJECTS]
-
 # Create your views here.
 
 def home(req):
+    MT_OBJECTS = MinorTrack.objects.all()
     return render(req, 'index.html', {'cards': MT_OBJECTS[:6]})
 
 
 def tracks(req):
+    MT_OBJECTS = MinorTrack.objects.all()
     return render(req, 'service.html', {'cards' : MT_OBJECTS})
 
 
@@ -43,6 +37,8 @@ def login(req):
 
 
 def details(req):
+    MT_OBJECTS = MinorTrack.objects.all()
+    MT_READS = [i.read_more for i in MT_OBJECTS]
     if req.GET['track'] in MT_READS:
         track = MT_OBJECTS[MT_READS.index(req.GET['track'])]
         syllabus = MTSyllabus.objects.filter(mt_id_id=track.id)
@@ -52,7 +48,3 @@ def details(req):
 
 def team(req):
     return render(req, "BigPP.html")
-
-
-# RUNS ONCE
-config()
