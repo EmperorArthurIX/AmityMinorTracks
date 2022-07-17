@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<title>Amity | Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="stylesheet" href="{% static 'css/loginform.css' %}">
+	
+	
+	</head>
+	<body>
+		<main class="main">
+			<div class="container" >
+				<section class="wrapper">
+					<div class="heading">
+						<h1 class="text text-large" style="color: #2124B1;">Sign In</h1>
+						</p>
+					</div>
+					<form name="login" class="form" action="apply" method="POST">
+						{% csrf_token %}
+						<div class="input-control">
+							<label for="number" class="input-label" style="border: #2124B1;" hidden>Form Number</label>
+							<input type="text" name="formnumber" class="input-field" placeholder="Form Number" style="border: #2124B1;color:#2124B1">
+						</div>
+						<div class="input-control">
+							<label for="password" class="input-label" hidden>Password</label>
+							<input type="password" name="password" class="input-field" placeholder="Password" style="border: #2124B1;color:#2124B1">
+						</div>
+						<div class="input-control">
+							<a href="home" class="text text-links">Home</a>
+							<button name="submit" class="input-submit" value="submit" style="background-color:#2124B1">Login</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</main>
+
+
+	</body>
+</html>
+

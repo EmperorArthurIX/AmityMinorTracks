@@ -1,0 +1,163 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <title>Amity | {{mt.name}}</title>
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext"
+        rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/fontawesome-all.css' %}" rel="stylesheet">
+    <link href="{% static 'css/swiper.css' %}" rel="stylesheet">
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+    <!-- Favicon  -->
+    <style>
+        table,
+        thead,tbody, th,
+        td {
+            border-collapse: collapse;
+            border-style: double;
+        }
+
+        table.center {
+            margin: auto auto;
+        }
+
+        th{
+            padding: 3vh 3vw;
+        }
+        td{
+            padding: 2vh 2vw;
+        }
+
+        button {
+            background-color: #036cff;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+            color: white;
+            padding: 1vh 1vw;
+            transition: background 500ms;
+            margin: auto 1vw;
+        }
+
+        button:hover {
+            color: white;
+            text-decoration: none;
+            background-color: #2124B1;
+        }
+
+        a, a:hover{
+            color: white;
+            text-decoration: none;
+        }
+
+        p,
+        .hello {
+            color: #2124B1;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" style="margin-top: 0px;">
+    <!-- Video -->
+    <div id="video" class="basic-2">
+        <div class="container">
+            <h1 style="color: #2124B1;">{{mt.name}}</h1><br>
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <!-- Video Preview -->
+                    <div class="image-container">
+                        <div class="video-wrapper">
+                            <a class="popup-youtube" href="https://www.youtube.com/watch?v=QnnZHAVcYR8"
+                                data-effect="fadeIn">
+                                <img class="img-fluid" src=media/{{mt.vid_thumbnail}} alt="alternative">
+                                <span class="video-play-button">
+                                    <span></span>
+                                </span>
+                            </a>
+                        </div> <!-- end of video-wrapper -->
+                    </div> <!-- end of image-container -->
+                    <!-- end of video preview -->
+
+                    <div class="p-heading ">
+                        <h6 class="hello">{{mt.name}} - {{mt.tot_creds}} credits</h6>
+                        <p>offered by</p>
+                        <p>{{mt.offered_by}}</p>
+                        <br>
+                        <h5 class="hello">Programme Structure and Content</h5>
+                    </div>
+                    <table class="center hello">
+                        <thead>
+                            <th>
+                                Semester
+                            </th>
+                            <th>
+                                Course Code
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Lectures
+                            </th>
+                            <th>
+                                Total Credits
+                            </th>
+                        </thead>
+                        <tbody>
+                            {% for row in syllabus %}
+                            <tr>
+                                <td>
+                                    {{row.semester}}
+                                </td>
+                                <td>
+                                    {{row.course_code}}
+                                </td>
+                                <td>
+                                    {{row.title}}
+                                </td>
+                                <td>
+                                    {{row.lec}}
+                                </td>
+                                <td>
+                                    {{row.creds}}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table><br>
+                    <button><a href="tracks">Back</a></button>
+                    <button><a href=media/{{mt.syllabus}} download="">Download Syllabus</a></button>
+                    <button><a href="apply">Apply Now</a></button>
+
+                </div> <!-- end of col -->
+            </div>
+
+            <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-2 -->
+    <!-- end of video -->
+
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="{% static 'js/swiper.min.js' %}"></script> <!-- Swiper for image and text sliders -->
+    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="{% static 'js/scripts.js' %}"></script> <!-- Custom scripts -->
+</body>
+
+</html>
