@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+# from dotenv import load_dotenv
+# load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://minor-track-selection.herokuapp.com/']
+ALLOWED_HOSTS = ['https://minor-track-selection.herokuapp.com/', 'localhost', '127.0.0.1', '::1']
 
 
 # Application definition
@@ -76,8 +78,6 @@ WSGI_APPLICATION = 'mtapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-# from dotenv import load_dotenv
-# load_dotenv()
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
