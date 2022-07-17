@@ -6,8 +6,11 @@ from django.contrib import messages
 
 # GLOBAL DATABASE FETCHED VARIABLES
 
-MT_OBJECTS = MinorTrack.objects.all()
-MT_READS = [i.read_more for i in MT_OBJECTS]
+def config():
+    global MT_OBJECTS
+    global MT_READS
+    MT_OBJECTS = MinorTrack.objects.all()
+    MT_READS = [i.read_more for i in MT_OBJECTS]
 
 # Create your views here.
 
@@ -49,3 +52,7 @@ def details(req):
 
 def team(req):
     return render(req, "BigPP.html")
+
+
+# RUNS ONCE
+config()
