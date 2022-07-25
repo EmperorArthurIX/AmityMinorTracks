@@ -1,4 +1,7 @@
+from unicodedata import name
 from django.urls import path
+
+from app import admin
 from . import views
 
 urlpatterns = [
@@ -7,5 +10,5 @@ urlpatterns = [
     path("tracks", views.tracks, name='minor tracks'),
     path("apply", views.login, name='apply'),
     path("details", views.details, name="details"),
-    path("BigPP", views.team, name="BigPP")
+    path("BigPP", views.team, name="BigPP"),
     ]

@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Amity | Create</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'img/Amity_University_logo.png' %}" rel="icon">
+
+    <link rel="stylesheet" href="{% static 'css/loginform.css' %}">
+
+    <style>
+        table,
+        thead,
+        tbody,
+        th,
+        td {
+            border-collapse: collapse;
+            border-style: double;
+        }
+
+        table {
+            table-layout: fixed;
+        }
+
+        td,
+        th {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <div class="container">
+            <section class="wrapper">
+                <div class="heading">
+                    <h1 class="text text-large" style="color: #2124B1;">Upload User Data</h1>
+                    <p>
+                        File Type: Comma Separated Value (.csv UTF-8)
+                        Please <strong>ensure</strong> this format with the header row:
+                    <table>
+                        <thead>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Form Number
+                            </th>
+                            <th>
+                                Password
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    student@s.amity.edu
+                                </td>
+                                <td>
+                                    8765432
+                                </td>
+                                <td>
+                                    a123bc
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    Incorrect column order can result in incorrect user credentials
+                    </p>
+                </div>
+                <form name="data" class="form" action="#" method="POST" enctype="multipart/form-data">
+                    {{form.as_p}}
+                    {% csrf_token %}
+                    <!-- <div class="input-control">
+							<label for="number" class="input-label" style="border: #2124B1;" hidden>Form Number</label>
+							<input type="text" name="formnumber" class="input-field" placeholder="Form Number" style="border: #2124B1;color:#2124B1">
+						</div>
+						<div class="input-control">
+							<label for="password" class="input-label" hidden>Password</label>
+							<input type="password" name="password" class="input-field" placeholder="Password" style="border: #2124B1;color:#2124B1">
+						</div> -->
+                    <!-- <div class="input-control">
+                            <label for="file">Upload File</label>
+                            <input type="file" name="file" id="file">
+                        </div> -->
+                    <div class="input-control">
+                        <a href="home" class="text text-links">Home</a>
+                        <button name="submit" class="input-submit" value="submit"
+                            style="background-color:#2124B1">Submit</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+
+</body>
+
+</html>

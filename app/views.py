@@ -3,12 +3,13 @@ from django.http import HttpRequest, HttpResponse
 from .models import MTSyllabus, MinorTrack
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django import forms
 
 # Create your views here.
 
 def home(req):
     MT_OBJECTS = MinorTrack.objects.all()
-    return render(req, 'index.html', {'cards': MT_OBJECTS[:6]})
+    return render(req, 'index.html', {'cards': MT_OBJECTS})
 
 
 def tracks(req):
