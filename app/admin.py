@@ -89,7 +89,7 @@ def upload_syllabus(req):
                     objs.append(syllabus)
                     # print(syllabus.mt_id, syllabus.semester, syllabus.course_code, syllabus.title, syllabus.lec, syllabus.creds)
         # print(objs)
-        User.objects.bulk_create(objs=objs)
+        MTSyllabus.objects.bulk_create(objs=objs)
         return render(req, 'success.html', {"count": len(objs), "name": "Syllabus Rows"})
 
     form = FileUploadForm()
