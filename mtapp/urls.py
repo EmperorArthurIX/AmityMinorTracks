@@ -22,7 +22,8 @@ from app import admin as ad
 urlpatterns = [
     path('', include('app.urls')),
     path('admin/', admin.site.urls),
-    path('upload_csv', ad.upload_csv)
+    path('upload_csv', ad.upload_csv),
+    path('upload_syllabus', ad.upload_syllabus),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

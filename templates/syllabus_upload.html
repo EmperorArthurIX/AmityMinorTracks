@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Amity | Create</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'img/Amity_University_logo.png' %}" rel="icon">
+
+    <link rel="stylesheet" href="{% static 'css/loginform.css' %}">
+
+    <style>
+        table,
+        thead,
+        tbody,
+        th,
+        td {
+            border-collapse: collapse;
+            border-style: double;
+        }
+
+        table {
+            table-layout: fixed;
+        }
+
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <div class="container">
+            <section class="wrapper">
+                <div class="heading">
+                    <h1 class="text text-large" style="color: #2124B1;">Upload Syllabus Data</h1>
+                    <p>
+                        File Type: Comma Separated Value (.csv UTF-8)
+                        Please <strong>ensure</strong> this format with the header row:
+                    </p>
+                    <table>
+                        <thead>
+                            <th>
+                                MT ID
+                            </th>
+                            <th>
+                                Semester
+                            </th>
+                            <th>
+                                Course Code
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Lectures per week
+                            </th>
+                            <th>
+                                Credits
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    ANIM
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    ANI2151
+                                </td>
+                                <td>
+                                    Intro
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ANIM
+                                </td>
+                                <td>
+                                    2
+                                </td>
+                                <td>
+                                    ANI2251
+                                </td>
+                                <td>
+                                    3D Anim
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <li style="list-style: circle ;">Wrong column order can result in incorrect entries</li>
+
+                    <li style="list-style: circle ;"><strong>MT ID</strong> MUST be exactlty same as the 4 letter ID assigned to the related minor
+                        track</li>
+
+                    <li style="list-style: circle ;">A list of MT IDs can be obtained from the admin dataclip bank on Heroku</li>
+                </div>
+                <form name="data" class="form" action="#" method="POST" enctype="multipart/form-data">
+                    {{form.as_p}}
+                    {% csrf_token %}
+                    <div class="input-control">
+                        <a href="home" class="text text-links">Home</a>
+                        <button name="submit" class="input-submit" value="submit"
+                            style="background-color:#2124B1">Submit</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+
+</body>
+
+</html>

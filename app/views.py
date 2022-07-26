@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from .models import MTSyllabus, MinorTrack
-from django.contrib.auth.models import User, auth
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 from django.contrib import messages
 from django import forms
 
@@ -17,25 +18,43 @@ def tracks(req):
     return render(req, 'service.html', {'cards' : MT_OBJECTS})
 
 
+#### DEBUG VERSION OF LOGIN FUNCTION: Needs login html head script to be updated to show results
+# def login(req):
+#     if req.method=='POST':
+#         #test data
+
+#         formnumber = req.POST['formnumber']
+#         password = req.POST['password']
+#         print(formnumber, password)
+#         user = list(filter(lambda x : x.username==formnumber,list(User.objects.all())))
+#         data = {}
+#         if user and len(user) == 1:
+#             user = user[0]
+#             data["username"] = "User exists"
+#             if user.check_password(password+"\r"):
+#                 data["password"] = "Password Matches"
+#                 return render(req, 'about.html')
+#             if user.has_usable_password():
+#                 data["usable"] = "Usable"
+#             data["password"] = "Password does not match"
+#         # print(list(filter(lambda x: x.username==formnumber, list(User.objects.all())))[0].password)
+#         data["login_fail"] = "Login Failed"
+#         return render(req, 'login.html', {"data" : data})
+#     return render(req, 'login.html')
+
+
 def login(req):
     if req.method=='POST':
-        #test data
 
         formnumber = req.POST['formnumber']
         password = req.POST['password']
-        
-        user = auth.authenticate(username=formnumber, password=password)
-        if user:
-            auth.login(req, user)
-            return render(req, 'about.html')
-
-        # messages.info(req, "Incorrect Login Credentials")
-
-        # if req.POST['formnumber'] == '8765432' and req.POST['password'] == '1234':
-        #     return render(req, 'about.html')
-        return render(req, 'login.html')
+        user = list(filter(lambda x : x.username==formnumber,list(User.objects.all())))
+        if user and len(user) == 1:
+            user = user[0]
+            if user.check_password(password):
+                return render(req, 'about.html')
+        return render(req, 'login.html', {"data" : "Login Failed"})
     return render(req, 'login.html')
-
 
 def details(req):
     MT_OBJECTS = MinorTrack.objects.all()

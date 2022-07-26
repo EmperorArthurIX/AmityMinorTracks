@@ -9,7 +9,11 @@
 	<link href="{% static 'img/Amity_University_logo.png' %}" rel="icon">
 
 	<link rel="stylesheet" href="{% static 'css/loginform.css' %}">
-	
+	{% if data %}
+		<script>
+			alert("{{data}}");
+		</script>
+	{% endif %}
 	
 	</head>
 	<body>
@@ -38,8 +42,7 @@
 				</section>
 			</div>
 		</main>
-
-
+		
 	</body>
 </html>
 
