@@ -7,7 +7,6 @@ class MinorTrack(models.Model):
     desc = models.CharField(max_length=200)
     read_more = models.CharField(max_length=200, unique=True)
     vid_url = models.CharField(max_length=200)
-    vid_thumbnail = models.ImageField(upload_to='thumbnails')
     offered_by = models.CharField(max_length=100)
     tot_creds = models.PositiveSmallIntegerField()
     icon_class = models.CharField(max_length=50)
