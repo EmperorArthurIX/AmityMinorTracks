@@ -10,7 +10,7 @@ from django import forms
 
 def home(req):
     MT_OBJECTS = MinorTrack.objects.all()
-    return render(req, 'index.html', {'cards': MT_OBJECTS})
+    return render(req, 'index.html', {'cards': MT_OBJECTS[:6]})
 
 
 def tracks(req):
