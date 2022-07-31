@@ -19,10 +19,12 @@
 
     <!-- Favicon  -->
     <link href="{% static 'img/Amity_University_logo.png' %}" rel="icon">
-    
+
     <style>
         table,
-        thead,tbody, th,
+        thead,
+        tbody,
+        th,
         td {
             border-collapse: collapse;
             border-style: double;
@@ -32,10 +34,11 @@
             margin: auto auto;
         }
 
-        th{
+        th {
             padding: 3vh 3vw;
         }
-        td{
+
+        td {
             padding: 2vh 2vw;
         }
 
@@ -56,7 +59,8 @@
             background-color: #2124B1;
         }
 
-        a, a:hover{
+        a,
+        a:hover {
             color: white;
             text-decoration: none;
         }
@@ -64,6 +68,11 @@
         p,
         .hello {
             color: #2124B1;
+        }
+
+        .table-box
+        {
+            overflow-x: auto;
         }
     </style>
 </head>
@@ -98,46 +107,48 @@
                         <br>
                         <h5 class="hello">Programme Structure and Content</h5>
                     </div>
-                    <table class="center hello">
-                        <thead>
-                            <th>
-                                Semester
-                            </th>
-                            <th>
-                                Course Code
-                            </th>
-                            <th>
-                                Title
-                            </th>
-                            <th>
-                                Lectures
-                            </th>
-                            <th>
-                                Total Credits
-                            </th>
-                        </thead>
-                        <tbody>
-                            {% for row in syllabus %}
-                            <tr>
-                                <td>
-                                    {{row.semester}}
-                                </td>
-                                <td>
-                                    {{row.course_code}}
-                                </td>
-                                <td>
-                                    {{row.title}}
-                                </td>
-                                <td>
-                                    {{row.lec}}
-                                </td>
-                                <td>
-                                    {{row.creds}}
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table><br>
+                    <div class="table-box">
+                        <table class="center hello">
+                            <thead>
+                                <th>
+                                    Semester
+                                </th>
+                                <th>
+                                    Course Code
+                                </th>
+                                <th>
+                                    Title
+                                </th>
+                                <th>
+                                    Lectures
+                                </th>
+                                <th>
+                                    Total Credits
+                                </th>
+                            </thead>
+                            <tbody>
+                                {% for row in syllabus %}
+                                <tr>
+                                    <td>
+                                        {{row.semester}}
+                                    </td>
+                                    <td>
+                                        {{row.course_code}}
+                                    </td>
+                                    <td>
+                                        {{row.title}}
+                                    </td>
+                                    <td>
+                                        {{row.lec}}
+                                    </td>
+                                    <td>
+                                        {{row.creds}}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table><br>
+                    </div>
                     <button><a href="tracks">Back</a></button>
                     <button><a href='{% get_static_prefix %}{{mt.syllabus}}' download="">Download Syllabus</a></button>
                     <button><a href="apply">Apply Now</a></button>
