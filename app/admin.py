@@ -1,10 +1,8 @@
-from dataclasses import field
 from django.contrib import admin
 from .models import MTSyllabus, MinorTrack
-from django.urls import path
 from django.shortcuts import render
 from django import forms
-from django.contrib.auth.models import User, auth
+from django.contrib.auth.models import User
 from django.contrib.admin.views.decorators import staff_member_required
 
 # Register your models here.
@@ -24,16 +22,18 @@ def upload_csv(req):
         for row in csv_data:
             fields = row.split(',')
             # print(fields)
-            if len(fields) == 3:
+            if len(fields) == 2:
                 user = User()
                 user.email = str(fields[0])
+                if str(fields[1]).endswith('\r'):
+                    fields[1] = fields[1][:-1]
                 user.username = str(fields[1])
-                if str(fields[2]).endswith('\r'):
-                    fields[2] = fields[2][:-1]
+                # if str(fields[2]).endswith('\r'):
+                #     fields[2] = fields[2][:-1]
                     # print(fields[2])
-                user.set_password(str(fields[2]))
-                print(user.check_password(str(fields[2])))
-                print(user.has_usable_password())
+                # user.set_password(str(fields[2]))
+                # print(user.check_password(str(fields[2])))
+                # print(user.has_usable_password())
                 objs.append(user)
         # print(objs)
         User.objects.bulk_create(objs=objs)

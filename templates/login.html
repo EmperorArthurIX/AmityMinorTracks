@@ -27,13 +27,13 @@
 					<form name="login" class="form" action="apply" method="POST">
 						{% csrf_token %}
 						<div class="input-control">
-							<label for="number" class="input-label" style="border: #2124B1;" hidden>Form Number</label>
-							<input type="text" name="formnumber" class="input-field" placeholder="Form Number" style="border: #2124B1;color:#2124B1">
+							<label for="number" class="input-label" style="border: #2124B1;" hidden>Enrollment Number</label>
+							<input type="text" name="formnumber" class="input-field" placeholder="Enrollment Number" style="border: #2124B1;color:#2124B1">
 						</div>
-						<div class="input-control">
+						<!-- <div class="input-control">
 							<label for="password" class="input-label" hidden>Password</label>
 							<input type="password" name="password" class="input-field" placeholder="Password" style="border: #2124B1;color:#2124B1">
-						</div>
+						</div> -->
 						<div class="input-control">
 							<a href="home" class="text text-links">Home</a>
 							<button name="submit" class="input-submit" value="submit" style="background-color:#2124B1">Login</button>

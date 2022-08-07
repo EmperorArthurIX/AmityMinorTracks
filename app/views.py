@@ -10,12 +10,12 @@ from django import forms
 
 def home(req):
     MT_OBJECTS = MinorTrack.objects.all()
-    return render(req, 'index.html', {'cards': MT_OBJECTS[:6]})
+    return render(req, 'index.html', {'count': len(MT_OBJECTS), 'cards': MT_OBJECTS[:6]})
 
 
 def tracks(req):
     MT_OBJECTS = MinorTrack.objects.all()
-    return render(req, 'service.html', {'cards' : MT_OBJECTS})
+    return render(req, 'service.html', {'count': len(MT_OBJECTS), 'cards' : MT_OBJECTS})
 
 
 #### DEBUG VERSION OF LOGIN FUNCTION: Needs login html head script to be updated to show results
@@ -47,12 +47,10 @@ def login(req):
     if req.method=='POST':
 
         formnumber = req.POST['formnumber']
-        password = req.POST['password']
-        user = list(filter(lambda x : x.username==formnumber,list(User.objects.all())))
-        if user and len(user) == 1:
-            user = user[0]
-            if user.check_password(password):
-                return render(req, 'about.html')
+        user = list(filter(lambda x : x.username==formnumber, list(User.objects.all())))
+        print(formnumber, user)
+        if user is not None and len(user) == 1:
+            return render(req, 'about.html')
         return render(req, 'login.html', {"data" : "Login Failed"})
     return render(req, 'login.html')
 
