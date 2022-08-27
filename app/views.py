@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from .models import MTSyllabus, MinorTrack
 from django.contrib.auth.models import User
@@ -44,15 +44,16 @@ def tracks(req):
 
 
 def login(req):
-    if req.method=='POST':
+    # if req.method=='POST':
 
-        formnumber = req.POST['formnumber']
-        user = list(filter(lambda x : x.username==formnumber, list(User.objects.all())))
-        print(formnumber, user)
-        if user is not None and len(user) == 1:
-            return render(req, 'about.html')
-        return render(req, 'login.html', {"data" : "Login Failed"})
-    return render(req, 'login.html')
+    #     formnumber = req.POST['formnumber']
+    #     user = list(filter(lambda x : x.username==formnumber, list(User.objects.all())))
+    #     print(formnumber, user)
+    #     if user is not None and len(user) == 1:
+    #         return render(req, 'about.html')
+    #     return render(req, 'login.html', {"data" : "Login Failed"})
+    # return render(req, 'login.html')
+    return render(req, 'about.html')
 
 def details(req):
     MT_OBJECTS = MinorTrack.objects.all()
@@ -66,3 +67,7 @@ def details(req):
 
 def team(req):
     return render(req, "BigPP.html")
+
+
+def syllabus(req):
+    return redirect("https://mega.nz/folder/SdInBZIL#vw8b7mewAP6lHJQ1tOSuNQ")
