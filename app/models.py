@@ -11,6 +11,7 @@ class MinorTrack(models.Model):
     tot_creds = models.PositiveSmallIntegerField()
     icon_class = models.CharField(max_length=50)
     syllabus = models.FileField(upload_to='pdfs')
+    max_seats = models.PositiveSmallIntegerField()
 
 
 class MTSyllabus(models.Model):

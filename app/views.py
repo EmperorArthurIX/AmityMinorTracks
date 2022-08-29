@@ -58,25 +58,10 @@ def login(req):
 def details(req):
     MT_OBJECTS = MinorTrack.objects.all()
     MT_READS = [i.read_more for i in MT_OBJECTS]
-    MT_COUNTS = {'Animation':70,
-                'Business Management': 140,
-                'Economics': 70,
-                'English Literature': 140,
-                'Fashion Technology': 140,
-                'Film Appreciation': 70,
-                'Fine Arts': 70,
-                'Human Rights': 70,
-                'Industrial Safety and Resource Management': 70,
-                'Interior Design': 70,
-                'Photography': 70,
-                'Physical Education and Sports': 70,
-                'Political Science': 70,
-                'Social Work': 70,
-                'Tourism Management': 140}
     if req.GET['track'] in MT_READS:
         track = MT_OBJECTS[MT_READS.index(req.GET['track'])]
         syllabus = MTSyllabus.objects.filter(mt_id_id=track.id)
-        return render(req, 'details.html', {'mt': track, 'syllabus': syllabus, 'max_count': MT_COUNTS[track.name]})
+        return render(req, 'details.html', {'mt': track, 'syllabus': syllabus})
         # return HttpResponse("I will render {} page by passing object to template".format(track.name))
 
 
