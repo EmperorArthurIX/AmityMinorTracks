@@ -61,7 +61,7 @@ def details(req):
     MT_COUNTS = {'Animation':70,
                 'Business Management': 140,
                 'Economics': 70,
-                'English Literature': 70,
+                'English Literature': 140,
                 'Fashion Technology': 140,
                 'Film Appreciation': 70,
                 'Fine Arts': 70,
