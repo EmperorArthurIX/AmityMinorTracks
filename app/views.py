@@ -10,7 +10,7 @@ from django import forms
 
 def home(req):
     MT_OBJECTS = MinorTrack.objects.all()
-    return render(req, 'index.html', {'count': len(MT_OBJECTS), 'cards': MT_OBJECTS[:6], 'open_date': "September 1st, 2022", "open_time": "5:00 PM"})
+    return render(req, 'index.html', {'count': len(MT_OBJECTS), 'cards': MT_OBJECTS[:6], 'open_date': "September 1st, 2022", "open_time": "5:00 PM", "close_time": "5:00 PM", "close_date": "September 2nd, 2022"})
 
 
 def tracks(req):
