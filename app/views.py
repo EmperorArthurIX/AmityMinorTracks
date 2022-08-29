@@ -9,12 +9,14 @@ from django import forms
 # Create your views here.
 
 def home(req):
-    MT_OBJECTS = MinorTrack.objects.all()
+    MT_OBJECTS = list(MinorTrack.objects.all())
+    MT_OBJECTS.sort(key=(lambda x : x.name))
     return render(req, 'index.html', {'count': len(MT_OBJECTS), 'cards': MT_OBJECTS[:6], 'open_date': "September 1st, 2022", "open_time": "5:00 PM", "close_time": "5:00 PM", "close_date": "September 2nd, 2022"})
 
 
 def tracks(req):
-    MT_OBJECTS = MinorTrack.objects.all()
+    MT_OBJECTS = list(MinorTrack.objects.all())
+    MT_OBJECTS.sort(key=(lambda x : x.name))
     return render(req, 'service.html', {'count': len(MT_OBJECTS), 'cards' : MT_OBJECTS})
 
 
@@ -56,7 +58,8 @@ def login(req):
     return render(req, 'about.html')
 
 def details(req):
-    MT_OBJECTS = MinorTrack.objects.all()
+    MT_OBJECTS = list(MinorTrack.objects.all())
+    MT_OBJECTS.sort(key=(lambda x : x.name))
     MT_READS = [i.read_more for i in MT_OBJECTS]
     if req.GET['track'] in MT_READS:
         track = MT_OBJECTS[MT_READS.index(req.GET['track'])]
