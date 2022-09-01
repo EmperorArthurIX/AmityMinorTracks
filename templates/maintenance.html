@@ -57,9 +57,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="#" class="nav-item nav-link active">Home</a>                        
-                        <a href="tracks" class="nav-item nav-link">Minor Tracks</a>
-                        <a href="apply" class="nav-item nav-link">Apply Now</a>                       
+                        <a href="#" class="nav-item nav-link active">Home</a>                  
                     </div>
             
                 </div>
@@ -70,9 +68,8 @@
                     <div class="row g-5 py-5">
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="text-white mb-4 animated zoomIn">The all in one site for Minor Tracks offered by AUM</h1>
-                            <p class="text-white pb-3 animated zoomIn">The only place you need to visit for the latest updates on minor tracks, their detailed descriptions and application forms!</p>
+                            <p class="text-white pb-3 animated zoomIn">This site is currently under maintenance. Thank you for your patience!</p>
                             
-                            <a href="apply" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Apply Now</a>
                         </div>
                         <div class="col-lg-6 text-center text-lg-start">
                         </div>
@@ -140,33 +137,7 @@
             </div>
         </div>
         <!-- About End -->
-        <!-- Service Start -->
-        <div class="container-xxl py-5">
-            <div class="container px-lg-5">
-                <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h2 class="mt-2">{{count}} Minor Tracks Offered</h2>
-                    <h3>Applications will open at {{open_time}} on {{open_date}}</h3>
-                    <h3>Applications will close at {{close_time}} on {{close_date}}</h3>
-                </div>
-                <div class="row g-4">
-                    {% for card in cards %}
-                    <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                        <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                            <div class="service-icon flex-shrink-0">
-                                <i class="fa {{card.icon_class}} fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3">{{card.name}}</h5>
-                            <h6>{{card.max_seats}} Seats</h6>
-                            <p>{{card.desc}}</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="details?track={{card.read_more}}">View More</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    <a href="tracks" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" id="viewmore">View More Minor Tracks</a>
-                </div>
-            </div>
-        </div>
-        <!-- Service End -->
+        
 
         <!-- Footer Start -->
         <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -185,12 +156,7 @@
                             <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/school/amityuniversitymumbai"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Popular Links</h5>
-                        <a class="btn btn-link" href="home">Home</a>
-                        <a class="btn btn-link" href="tracks">Minor Tracks</a>
-                        <a class="btn btn-link" href="apply">Apply Now</a>
-                    </div>
+                    
                     <div class="col-md-6 col-lg-5">
                         <h5 class="text-white mb-4">Location</h5>
                         <iframe src="https://maps.google.com/maps?q=AmityUniversityMumbai&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"

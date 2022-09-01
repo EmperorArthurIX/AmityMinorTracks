@@ -9,12 +9,16 @@ from django import forms
 # Create your views here.
 
 def home(req):
+    if isUnderMaintenance():
+        return render(req, 'maintenance.html')
     MT_OBJECTS = list(MinorTrack.objects.all())
     MT_OBJECTS.sort(key=(lambda x : x.name))
     return render(req, 'index.html', {'count': len(MT_OBJECTS), 'cards': MT_OBJECTS[:6], 'open_date': "September 1st, 2022", "open_time": "5:00 PM", "close_time": "5:00 PM", "close_date": "September 2nd, 2022"})
 
 
 def tracks(req):
+    if isUnderMaintenance():
+        return render(req, 'maintenance.html')
     MT_OBJECTS = list(MinorTrack.objects.all())
     MT_OBJECTS.sort(key=(lambda x : x.name))
     return render(req, 'service.html', {'count': len(MT_OBJECTS), 'cards' : MT_OBJECTS})
@@ -46,6 +50,8 @@ def tracks(req):
 
 
 def login(req):
+    if isUnderMaintenance():
+        return render(req, 'maintenance.html')
     # if req.method=='POST':
 
     #     formnumber = req.POST['formnumber']
@@ -58,6 +64,8 @@ def login(req):
     return render(req, 'about.html')
 
 def details(req):
+    if isUnderMaintenance():
+        return render(req, 'maintenance.html')
     MT_OBJECTS = list(MinorTrack.objects.all())
     MT_OBJECTS.sort(key=(lambda x : x.name))
     MT_READS = [i.read_more for i in MT_OBJECTS]
@@ -69,8 +77,17 @@ def details(req):
 
 
 def team(req):
+    if isUnderMaintenance():
+        return render(req, 'maintenance.html')
     return render(req, "BigPP.html")
 
 
 def syllabus(req):
+    if isUnderMaintenance():
+        return render(req, 'maintenance.html')
     return redirect("https://mega.nz/folder/SdInBZIL#vw8b7mewAP6lHJQ1tOSuNQ")
+
+
+def isUnderMaintenance():
+    maintenance = True
+    return maintenance
