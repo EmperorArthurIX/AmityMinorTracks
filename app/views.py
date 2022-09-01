@@ -89,5 +89,5 @@ def syllabus(req):
 
 
 def isUnderMaintenance():
-    maintenance = True
+    maintenance = False
     return maintenance
